@@ -28,41 +28,36 @@ public class MainActivity extends AppCompatActivity {
         initContentArrays();
     }
 
-    private ArrayList<String> makeWeekDates(){
+    private ArrayList<String> makeWeekDates()
+    {
         Log.d(TAG, "makeWeekDates: Making arrays");
-        
+        int upperDays = 31;
         ArrayList<String> dateArray = new ArrayList<>();
-        dateArray.add(String.valueOf(dateNumber));
-        dateNumber ++;
-        dateArray.add(String.valueOf(dateNumber));
-        dateNumber ++;
-        dateArray.add(String.valueOf(dateNumber));
-        dateNumber ++;
-        dateArray.add(String.valueOf(dateNumber));
-        dateNumber ++;
-        dateArray.add(String.valueOf(dateNumber));
-        dateNumber ++;
-        dateArray.add(String.valueOf(dateNumber));
-        dateNumber ++;
-        dateArray.add(String.valueOf(dateNumber));
-        dateNumber ++;
+        for(int i = 0; i < 7; i++){
+            dateArray.add(String.valueOf(dateNumber));
+            if(dateNumber >= upperDays){
+                dateNumber = 1;
+            } else {
+                dateNumber ++;
+            }
+
+        }
         return dateArray;
     }
-    private void initContentArrays(){
+
+    private void initContentArrays()
+    {
         Log.d(TAG, "initContentArrays: Making Arrays");
-
-        mWeekNr.add("Week Number 1");
-        mDates.add(makeWeekDates());
-
-        mWeekNr.add("Week Number 2");
-        mDates.add(makeWeekDates());
-
-        mWeekNr.add("Week Number 3");
-        mDates.add(makeWeekDates());
-
+        int weekAmount = 5;
+        for(int i = 0; i < weekAmount; i++){
+            mWeekNr.add("Week Number " + (i + 1));
+            mDates.add(makeWeekDates());
+        }
         initRecyclerView();
     }
-    private void initRecyclerView(){
+
+    private void initRecyclerView()
+    {
         Log.d(TAG, "initRecyclerView: Making View");
         RecyclerView recyclerView = findViewById(R.id.recyclerv_view);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(mWeekNr, mDates, this);

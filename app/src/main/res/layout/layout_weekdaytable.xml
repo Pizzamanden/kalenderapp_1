@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#eee"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="20dp"
     android:id="@+id/parent_layout">
 
     <TableRow
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -66,7 +71,7 @@
         android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#eee"/>
+        android:background="#999"/>
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -107,7 +112,7 @@
         android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#eee"/>
+        android:background="#999"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -149,7 +154,7 @@
         android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#eee"/>
+        android:background="#999"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -191,7 +196,7 @@
         android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#eee"/>
+        android:background="#999"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -233,7 +238,7 @@
         android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#eee"/>
+        android:background="#999"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -277,7 +282,7 @@
         android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#eee"/>
+        android:background="#999"/>
 
     <TableRow
         android:layout_width="match_parent"
@@ -319,14 +324,5 @@
         android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#eee"/>
-
-    <View
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
         android:background="#999"/>
-
-
 </TableLayout>
