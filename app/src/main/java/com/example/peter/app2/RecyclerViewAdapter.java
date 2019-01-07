@@ -2,6 +2,7 @@ package com.example.peter.app2;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,13 +18,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private static final String TAG = "RecyclerViewAdapter";
 
-    private ArrayList<String> mWeekNr = new ArrayList<>();
-    private ArrayList<ArrayList<String>> mDates = new ArrayList<>();
+    private ArrayList<String> mDates = new ArrayList<>();
+    private ArrayList<String> mDays = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(ArrayList<String> weekNr, ArrayList<ArrayList<String>> dates, Context context) {
-        this.mWeekNr = weekNr;
+    public RecyclerViewAdapter(ArrayList<String> dates, ArrayList<String> days, Context context) {
         this.mDates = dates;
+        this.mDays = days;
         this.mContext = context;
     }
 
@@ -38,45 +39,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
 
-        viewHolder.weekNr.setText(mWeekNr.get(i));
-
-        ArrayList<String> myList = mDates.get(i);
-        viewHolder.weekDate1.setText(myList.get(0));
-        viewHolder.weekDate2.setText(myList.get(1));
-        viewHolder.weekDate3.setText(myList.get(2));
-        viewHolder.weekDate4.setText(myList.get(3));
-        viewHolder.weekDate5.setText(myList.get(4));
-        viewHolder.weekDate6.setText(myList.get(5));
-        viewHolder.weekDate7.setText(myList.get(6));
+        viewHolder.weekDate.setText(mDates.get(i));
+        viewHolder.weekDay.setText(mDays.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return mWeekNr.size();
+
+        return mDates.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView weekNr;
-        TextView weekDate1;
-        TextView weekDate2;
-        TextView weekDate3;
-        TextView weekDate4;
-        TextView weekDate5;
-        TextView weekDate6;
-        TextView weekDate7;
-        TableLayout parentLayout;
+        TextView weekDate;
+        TextView weekDay;
+        ConstraintLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            weekNr = itemView.findViewById(R.id.textView_weekNr);
-            weekDate1 = itemView.findViewById(R.id.textView_date1);
-            weekDate2 = itemView.findViewById(R.id.textView_date2);
-            weekDate3 = itemView.findViewById(R.id.textView_date3);
-            weekDate4 = itemView.findViewById(R.id.textView_date4);
-            weekDate5 = itemView.findViewById(R.id.textView_date5);
-            weekDate6 = itemView.findViewById(R.id.textView_date6);
-            weekDate7 = itemView.findViewById(R.id.textView_date7);
+            weekDate = itemView.findViewById(R.id.textView_date);
+            weekDay = itemView.findViewById(R.id.textView_day);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }

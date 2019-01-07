@@ -2,6 +2,7 @@ package com.example.peter.app2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,48 +23,27 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     //vars
-    private ArrayList<String> mWeekNr = new ArrayList<>();
-    private ArrayList<ArrayList<String>> mDates = new ArrayList<>();
-    private int dateNumber;
-    private String myHttpString;
-    public TextView textView_users;
+    private ArrayList<String> mDates = new ArrayList<>();
+    private ArrayList<String> mDays = new ArrayList<>();
     private String folderolURL = "http://www.folderol.dk/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dateNumber = 1;
         Log.d(TAG, "onCreate: Created");
-        textView_users = findViewById(R.id.textView_users);
         initContentArrays();
-    }
-
-    private ArrayList<String> makeWeekDates()
-    {
-        Log.d(TAG, "makeWeekDates: Making arrays");
-        int upperDays = 31;
-        ArrayList<String> dateArray = new ArrayList<>();
-        for(int i = 0; i < 7; i++){
-            dateArray.add(String.valueOf(dateNumber));
-            if(dateNumber >= upperDays){
-                dateNumber = 1;
-            } else {
-                dateNumber ++;
-            }
-
-        }
-        return dateArray;
     }
 
     private void initContentArrays()
     {
         Log.d(TAG, "initContentArrays: Making Arrays");
-        int weekAmount = 5;
-        for(int i = 0; i < weekAmount; i++){
-            mWeekNr.add("Week Number " + (i + 1));
-            mDates.add(makeWeekDates());
+
+        for(int i = 0; i < 64; i++){
+            mDates.add(i + 1 + "");
+            mDays.add("Dab");
         }
+
         initRecyclerView();
     }
 
@@ -75,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void httpCallback(String response)
     {
-        textView_users.setText(response);
+        // Response is HTTP Response
+        // Not Used, saved for convenience
     }
 
     public void makeHttpReq(String url)
@@ -117,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Log.d(TAG, "initRecyclerView: Making View");
         RecyclerView recyclerView = findViewById(R.id.recyclerv_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mWeekNr, mDates, this);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mDates, mDays, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
