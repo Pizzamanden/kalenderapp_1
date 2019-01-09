@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calendar App</string>
+    <string name="app_name">Kalender</string>
     <string name="day1">Monday</string>
     <string name="day2">Tuesday</string>
     <string name="day3">Wednesday</string>
@@ -26,5 +26,8 @@
 
     <string name="dummyDate">01</string>
     <string name="dummyWeek">Week Nr 1</string>
-    <string name="dummyContent">No plans, click here to add plans</string>
+    <string name="dummyContent">Intet planlagt</string>
+
+    <string name="drawerToggleOpen">Open</string>
+    <string name="drawerToggleClose">Close</string>
 </resources>

@@ -20,11 +20,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private ArrayList<String> mDates = new ArrayList<>();
     private ArrayList<String> mDays = new ArrayList<>();
+    private ArrayList<String> mPlans = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(ArrayList<String> dates, ArrayList<String> days, Context context) {
+    public RecyclerViewAdapter(ArrayList<String> dates, ArrayList<String> days, ArrayList<String> plans, Context context) {
         this.mDates = dates;
         this.mDays = days;
+        this.mPlans = plans;
         this.mContext = context;
     }
 
@@ -41,6 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         viewHolder.weekDate.setText(mDates.get(i));
         viewHolder.weekDay.setText(mDays.get(i));
+        viewHolder.weekPlans.setText(mPlans.get(i));
     }
 
     @Override
@@ -53,12 +56,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView weekDate;
         TextView weekDay;
+        TextView weekPlans;
         ConstraintLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             weekDate = itemView.findViewById(R.id.textView_date);
             weekDay = itemView.findViewById(R.id.textView_day);
+            weekPlans = itemView.findViewById(R.id.textView_plans);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
